@@ -1,0 +1,58 @@
+<app-header class="ion-text-center" titulo="Crea tu cuenta">
+</app-header>
+<ion-content class="ion-float-left ion-margin ion-padding ">
+
+    <ion-row>
+        <!-- <ion-col size="12" size-lg="3" size-md="4" size-sm="6"> -->
+        <ion-col size="12" size-lg="3" size-md="4" size-sm="6">
+            <ion-card>
+                <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+
+                    <ion-item>
+                        <ion-input type="name" placeholder="Primer Nombre:" maxlength="20" name="nombre" #nombre="ngModel" [(ngModel)]="usuario.name" pattern="[a-zA-Z]+" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="additionalName" placeholder="Segundo Nombre:" maxlength="20" name="additionalName" #additionalName="ngModel" [(ngModel)]="usuario.additionalName" pattern="[a-zA-Z]+"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="familyName" placeholder="Apellido :" maxlength="20" name="familyName" #familyName="ngModel" pattern="[a-zA-Z]+" [(ngModel)]="usuario.familyName" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="email" placeholder="Correo electronico:" maxlength="50" name="email" #email="ngModel" maxlength="50" [(ngModel)]="usuario.email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="password" placeholder="Nueva Contraseña:" maxlength="20" name="password" #password="ngModel" [(ngModel)]="usuario.password" required></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> Genero: </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-checkbox slot="start"></ion-checkbox>
+                        <!-- name="sex" #sex="ngModel" [(ngModel)]="usuario.sex " -->
+                        <ion-input type="sex" required>Mujer</ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-checkbox slot="start"></ion-checkbox>
+                        <ion-input type="sex">Hombre </ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-checkbox slot="start"></ion-checkbox>
+                        <ion-input type="sex">Otro</ion-input>
+                    </ion-item>
+
+
+                    <ion-button type="submit" class="card-img-top" expand=" block" (click)="presentAlert()" [routerLink]="'/definir'" [disabled]="formulario.invalid">
+                        Crea tu cuenta nueva
+                    </ion-button>
+                </form>
+
+
+            </ion-card>
+
+
+        </ion-col>
+    </ion-row>
+
+
+
+</ion-content>
